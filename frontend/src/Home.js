@@ -16,7 +16,7 @@ const Home = () => {
 
     const fetchInfo = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/auth/info');
+        const response = await axios.get('https://authproject-oeni.onrender.com/auth/info');
         setInfo(response.data);
       } catch (error) {
         console.error('Error fetching info data', error);

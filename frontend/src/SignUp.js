@@ -67,7 +67,7 @@ const SignUp = () => {
 
     if (valid) {
       try {
-        await axios.post('http://localhost:5000/auth/signup', signupInfo);
+        await axios.post('https://authproject-oeni.onrender.com/auth/signup', signupInfo);
         toast.success('Signup successful, redirecting to login...');
         navigate('/login');
       } catch (error) {
