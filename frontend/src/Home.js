@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Home = () => {
   const [info, setInfo] = useState([]);
@@ -33,6 +34,7 @@ const Home = () => {
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('userId');
     localStorage.removeItem('name');
+    toast.success('Logout successful');
     navigate('/login');
   };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const Login = () => {
@@ -89,7 +89,7 @@ const Login = () => {
         <button type='submit'>Login</button>
         <span>Doesn't have an account? <Link to="/signup">Signup</Link></span>
       </form>
-      <ToastContainer />
+     
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const SignUp = () => {
@@ -69,6 +69,7 @@ const SignUp = () => {
       try {
         await axios.post('https://authproject-oeni.onrender.com/auth/signup', signupInfo);
         toast.success('Signup successful, redirecting to login...');
+       
         navigate('/login');
       } catch (error) {
         if (error.response && error.response.data) {
@@ -155,7 +156,7 @@ const SignUp = () => {
         <span>
           Already have an account? <Link to='/login'>Login</Link>
         </span>
-        <ToastContainer />
+       
       </form>
     </div>
   );
