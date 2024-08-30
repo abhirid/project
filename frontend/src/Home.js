@@ -62,7 +62,7 @@ const Home = () => {
           <tbody>
             {info.map((user, index) => (
               <tr key={index}>
-                <td>{user.name}</td>
+                <td>{username}</td>
                 <td>{user.lastName}</td>
                 <td>{user.month}</td>
                 <td>{user.salary}</td>
