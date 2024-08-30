@@ -77,24 +77,24 @@ throw new UnauthorizedException("Wrong credentials");
       return this.generateUserTokens(token.userId);
   }
   async generateUserTokens(userId){
-    const accesstoken=this.jwtService.sign({userId},{expiresIn:'1h'});
+    const accessToken=this.jwtService.sign({userId},{expiresIn:'1h'});
     const refreshToken= uuidv4();
     
-    await this.storeRefreshToken(refreshToken,userId,accessToken)
+    await this.storeRefreshToken(refreshToken,userId)
     return{
       accessToken,
       refreshToken
     }
   }
  
-  async storeRefreshToken(token: string,userId,accessToken){
+  async storeRefreshToken(token: string,userId){
     const expiryDate=new Date();
     expiryDate.setDate(expiryDate.getDate()+3);
     // await this.RefreshTokenModel.create({
     //   token,userId,expiryDate
     // });
     await this.RefreshTokenModel.updateOne({
-      token,userId,accesstoken
+      token,userId
     },
   {set:{expiryDate}},
 {upsert:true})
